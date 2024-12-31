@@ -11,10 +11,12 @@ function NewComment(props) {
   function sendCommentHandler(event) {
     event.preventDefault();
 
+    // get all user input
     const enteredEmail = emailInputRef.current.value;
     const enteredName = nameInputRef.current.value;
     const enteredComment = commentInputRef.current.value;
 
+    //  some client-side validation
     if (
       !enteredEmail ||
       enteredEmail.trim() === "" ||
@@ -36,7 +38,7 @@ function NewComment(props) {
   }
 
   return (
-    <form className={classes.form}>
+    <form className={classes.form} onSubmit={sendCommentHandler}>
       <div className={classes.row}>
         <div className={classes.control}>
           <label htmlFor="email">Your email</label>
